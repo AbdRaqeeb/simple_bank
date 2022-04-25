@@ -25,4 +25,10 @@ stopdb:
 test:
 	go test -v -cover ./...
 
-.PHONY: createdb postgres dropdb migrateup migratedown sqlc startdb stopdb test
+server:
+	go run main.go
+
+mock:
+	mockgen -package mockdb --build_flags=--mod=mod -destination db/mock/store.go github.com/AbdRaqeeb/simple_bank/db/sqlc Store
+
+.PHONY: createdb postgres dropdb migrateup migratedown sqlc startdb stopdb test server mock

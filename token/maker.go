@@ -5,7 +5,7 @@ import "time"
 // Maker is an interface to manage tokens
 type Maker interface {
 	// CreateToken generates a new token for a specific username and duration
-	CreateToken(username string, duration time.Duration)
+	CreateToken(username string, duration time.Duration) (string, error)
 
 	// VerifyToken checks for token validity
 	VerifyToken(token string) (*Payload, error)

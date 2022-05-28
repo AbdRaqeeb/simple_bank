@@ -190,7 +190,7 @@ func TestUserApi(t *testing.T) {
 
 			store := mockdb.NewMockStore(ctrl)
 
-			server := NewServer(store)
+			server := newTestServer(t, store)
 
 			url := "/users"
 
